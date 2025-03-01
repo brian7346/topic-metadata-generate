@@ -1,6 +1,6 @@
 export interface TopicMetadata {
     id: string;
-    name: string
+    title: string;
     descriptionVideoId: string;
     solutionVideoId: string;
 }

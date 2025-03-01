@@ -1,6 +1,6 @@
 {
   "name": "topic-metadata-generate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generator for course topic metadata",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

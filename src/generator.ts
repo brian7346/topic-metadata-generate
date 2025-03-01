@@ -16,7 +16,7 @@ export class MetadataGenerator {
                     const metadata = JSON.parse(metadataMatch[1]);
                     return {
                         id: fileName,
-                        name: metadata.name || this.formatName(fileName),
+                        title: metadata.title || this.formatTitle(fileName),
                         descriptionVideoId: metadata.descriptionVideoId || "",
                         solutionVideoId: metadata.solutionVideoId || ""
                     };
@@ -28,7 +28,7 @@ export class MetadataGenerator {
             
             return {
                 id: fileName,
-                name: this.formatName(fileName),
+                title: this.formatTitle(fileName),
                 descriptionVideoId: "",
                 solutionVideoId: ""
             };
@@ -38,7 +38,7 @@ export class MetadataGenerator {
         }
     }
 
-    private formatName(id: string): string {
+    private formatTitle(id: string): string {
         const nameWithoutExt = id.replace(/\.[^/.]+$/, "");
         return nameWithoutExt
             .split('-')
