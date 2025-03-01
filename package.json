@@ -1,0 +1,32 @@
+{
+  "name": "topic-metadata-generate",
+  "version": "1.0.1",
+  "description": "Generator for course topic metadata",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "bin": {
+    "generate-metadata": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "typescript",
+    "course",
+    "metadata"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.9.5",
+    "glob": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/glob": "^8.1.0"
+  }
+}
