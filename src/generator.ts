@@ -9,7 +9,6 @@ export class MetadataGenerator {
             const content = fs.readFileSync(filePath, 'utf-8');
             const fileName = path.basename(filePath);
             
-            // Ищем комментарий с метаданными в начале файла
             const metadataMatch = content.match(/\/\*\s*@metadata\s*({[\s\S]*?})\s*\*\//);
             
             if (metadataMatch) {
@@ -27,7 +26,6 @@ export class MetadataGenerator {
                 }
             }
             
-            // Если метаданные не найдены, создаем базовую структуру
             return {
                 id: fileName,
                 name: this.formatName(fileName),
@@ -51,11 +49,9 @@ export class MetadataGenerator {
     public generateMetadata(srcDir: string): CourseMetadata {
         const problems: TopicMetadata[] = [];
         
-        // Ищем все .ts файлы в директории src
         const files = glob.sync('**/*.ts', { cwd: srcDir });
         
         for (const file of files) {
-            // Пропускаем служебные файлы
             if (file.includes('index.ts') || file.includes('types.ts') || file.includes('generator.ts')) {
                 continue;
             }
@@ -68,7 +64,6 @@ export class MetadataGenerator {
             }
         }
         
-        // Сортируем по ID
         problems.sort((a, b) => a.id.localeCompare(b.id));
         
         return { problems };

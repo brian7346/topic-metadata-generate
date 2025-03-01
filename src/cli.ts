@@ -6,7 +6,6 @@ import * as fs from 'fs';
 
 const generator = new MetadataGenerator();
 
-// Получаем путь к директории src из текущей рабочей директории
 const srcDir = path.join(process.cwd(), 'src');
 
 if (!fs.existsSync(srcDir)) {
@@ -16,7 +15,6 @@ if (!fs.existsSync(srcDir)) {
 
 const metadata = generator.generateMetadata(srcDir);
 
-// Сохраняем метаданные в файл
 const outputPath = path.join(process.cwd(), 'course-metadata.json');
 fs.writeFileSync(outputPath, JSON.stringify(metadata, null, 2));
 
